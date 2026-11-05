@@ -1,9 +1,9 @@
 from recommender_embeddings import EmbeddingRecommender
 
-# Cargar documentos y generar embeddings
+# Load documents and generate embeddings
 recommender = EmbeddingRecommender()
 
-# Obtener los cinco documentos similares a DOC001
+# Get the five documents similar to DOC001
 results = recommender.recommend_by_id("DOC001")
 
 for result in results:
