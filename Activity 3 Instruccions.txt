@@ -1,0 +1,141 @@
+Activity 3 Instruccions
+
+Objective
+
+To implement a Python script to generate top-K document recommendations based on cosine similarity, while validating its results and business utility.
+
+Instructions
+1. Repository Preparation (Corpus or Dataset)
+
+a. Gather a repository of a minimum of 25 documents and a suggested maximum of 60, for example:
+
+Public documents (such as news, posts, and short articles).
+Simulated documents (such as fictional internal policies, meeting minutes, FAQs, and tickets).
+b. Convert each document to text in .txt format or into a text column within a .csv file.
+
+c. Create a corpus.csv file with the following columns:
+
+id (e.g., DOC001)
+title
+text
+category (optional, if you want to analyze results by topic)
+ 
+
+2. Recommender Implementation
+
+Incorporating programming best practices, develop a Python script to implement the recommender system. Choose one of the following paths:
+
+(1) Path A. TF-IDF. Recommended for simplicity and transparency.
+
+a. Perform minimal text cleaning: lowercase conversion, removal of special characters, and optionally, stopwords.
+
+b. Vectorize the corpus using TfidfVectorizer.
+
+c. Calculate the cosine similarity between documents.
+
+d. Given a seed document ID or a query text, return the Top-5 most similar documents.
+
+e. Exclude the seed document itself when one is used.
+
+(2) Path B. Embeddings. Recommended for capturing semantic meaning.
+
+a. Use a pre-trained model; for example, sentence-transformers.
+
+b. Generate embeddings for each document.
+
+c. Calculate the cosine similarity.
+
+d. Return the Top-5 most similar documents to a seed document or a query text.
+
+ 
+
+3. Execution Interface (Minimum Requirement)
+
+Your program must allow at least one of the following modalities:
+
+Option 1: The user enters a document ID, and the system recommends the Top-5.
+
+Option 2: The user pastes a short text, and the system recommends the Top-5.
+
+4. Proof of Operation
+
+a. Run three distinct tests:
+
+Test 1: Seed document from "Policy/Process".
+
+Test 2: Seed document from "Support/Incidents".
+
+Test 3: Free text as a query, if you implemented that option.
+
+b. For each test, capture evidence from the console, notebook, or script output showing the following:
+
+Input: ID or text.
+
+Output: Top-5 with similarity scores.
+
+Brief comment: Explain whether the recommendations are coherent and why.
+
+5. Organizational Reflection
+
+Record a brief video (maximum 5 minutes) answering these questions:
+
+Why does this type of recommendation reduce rework and accelerate decision-making?
+
+What limitations do you observe, for example, regarding synonyms, ambiguity, short documents, or corpus bias?
+
+What would you improve for a real-world environment, such as metadata, role-based filters, security, or continuous evaluation?
+
+
+Deliverables
+Electronic folder containing the following items:
+
+Source code in a .py or .ipynb file.
+
+Dataset: corpus.csv or a /docs_txt/ folder with a CSV index.
+
+README file in .md, .txt, or short PDF format, including:
+
+Objective
+
+Dependencies
+
+Execution steps
+
+Usage example
+
+Evidence of the three tests in the /evidencias/ folder.
+
+A brief 1-to-2-page report in PDF format, including:
+
+Description of the approach
+
+Development areas of opportunity (areas for improvement)
+
+Link to the organizational reflection video
+
+
+Rubric:
+Preparation and structure of the document repository:Highly competent
+Submits a repository containing between 25 and 60 documents in .txt files or in a corpus.csv file. The dataset includes the fields id, title, and text, and each identifier is unique. The documents contain enough text to support similarity calculations and represent at least the Policy/Process and Support/Incidents categories required for testing.
+15 to >12 pts
+
+
+Implementation of the recommendation system: Highly competent
+Implements Path A with TF-IDF or Path B with embeddings. The script loads the corpus, performs the required preprocessing, generates document vectors, calculates cosine similarity, returns the five documents with the highest scores, and excludes the seed document when an ID is used. The code is organized into functions or identifiable sections and includes handling for invalid identifiers, empty queries, or missing files.
+30 to >25 pts
+
+Execution interface and validation tests: Highly competent
+Provides an interface that accepts a document ID, a free-text query, or both. Submits evidence of three distinct executions: one Policy/Process test, one Support/Incidents test, and a third test using free text when that modality was implemented. Each test shows the input, the Top-5 results, similarity scores, and a comment explaining the relationship between the query and the recommended documents.
+20 to >16 pts
+
+Documentation and reproducibility of the solution: Highly competent
+Submits the source code, dataset, evidence folder, and README. The README states the objective, dependencies, installation or execution steps, expected file structure, and at least one usage example. The submitted instructions allow the program to be executed with the included files without requiring undocumented modifications.
+20 to >16 pts
+
+
+Analysis of results and organizational utility: Highly competent
+Submits a one-to-two-page PDF report describing the selected approach and identifying areas for improvement. Includes the link to a video of no more than five minutes that explains how the recommender reduces rework and supports decision-making, identifies limitations related to synonyms, ambiguity, document length, or corpus bias, and proposes improvements involving metadata, role-based filters, security, or continuous evaluation.
+15 to >12 pts
+
+
+
