@@ -1,7 +1,6 @@
-"""Recomendador semántico (Actividad 3, punto 2, opción B: Embeddings).
+"""Semantic Recommender Implementation (Activity 3, Intruction 2, Option B: Embeddings).
 
-Este módulo implementa solamente el motor de recomendación.
-No incluye interfaz interactiva, evidencias ni entregables de otros puntos.
+This module only implements the recommender functions for the execution interface.
 """
 
 from __future__ import annotations
@@ -17,11 +16,11 @@ DEFAULT_CORPUS = Path(__file__).resolve().parent / "corpus.csv"
 
 
 def load_corpus(csv_path: str | Path = DEFAULT_CORPUS) -> list[dict[str, str]]:
-    """Carga y valida los documentos del corpus sin modificarlos."""
+    """Load and validate corpus data without modifying"""
     path = Path(csv_path)
 
     if not path.is_file():
-        raise FileNotFoundError(f"No se encontró el corpus: {path}")
+        raise FileNotFoundError(f"Corpus not found: {path}")
 
     documents: list[dict[str, str]] = []
     seen_ids: set[str] = set()
@@ -32,7 +31,7 @@ def load_corpus(csv_path: str | Path = DEFAULT_CORPUS) -> list[dict[str, str]]:
         missing_columns = required_columns - set(reader.fieldnames or [])
         if missing_columns:
             raise ValueError(
-                "Faltan columnas obligatorias en corpus.csv: "
+                "Missing mandatory columns on corpus.csv: "
                 + ", ".join(sorted(missing_columns))
             )
 
@@ -44,10 +43,10 @@ def load_corpus(csv_path: str | Path = DEFAULT_CORPUS) -> list[dict[str, str]]:
 
             if not doc_id or not title or not text:
                 raise ValueError(
-                    f"Fila {row_number}: id, title y text no pueden estar vacíos."
+                    f"Row {row_number}: id, title and text can not be empty."
                 )
             if doc_id in seen_ids:
-                raise ValueError(f"ID duplicado en fila {row_number}: {doc_id}")
+                raise ValueError(f"Duplicated ID in row {row_number}: {doc_id}")
 
             seen_ids.add(doc_id)
             documents.append(
@@ -55,13 +54,13 @@ def load_corpus(csv_path: str | Path = DEFAULT_CORPUS) -> list[dict[str, str]]:
             )
 
     if len(documents) < 2:
-        raise ValueError("El corpus debe contener al menos dos documentos.")
+        raise ValueError("Corpus must contain at least two documents.")
 
     return documents
 
 
 class EmbeddingRecommender:
-    """Genera embeddings una vez y busca los documentos más similares."""
+    """Generate embeddings and search similar documents"""
 
     def __init__(
         self,
@@ -85,13 +84,13 @@ class EmbeddingRecommender:
     def recommend_by_id(
         self, document_id: str, top_k: int = 5
     ) -> list[dict[str, str | float]]:
-        """Top-K por documento semilla, excluyendo el propio documento."""
+        """Top-K per document seed, excluding the used document"""
         if not isinstance(document_id, str) or not document_id.strip():
-            raise ValueError("Debes proporcionar un ID de documento válido.")
+            raise ValueError("Must provide a valid document ID.")
 
         normalized_id = document_id.strip().upper()
         if normalized_id not in self.id_to_index:
-            raise ValueError(f"No existe el documento: {normalized_id}")
+            raise ValueError(f"No document with the ID: {normalized_id}")
 
         seed_index = self.id_to_index[normalized_id]
         scores = util.cos_sim(self.embeddings[seed_index], self.embeddings)[0]
@@ -100,9 +99,9 @@ class EmbeddingRecommender:
     def recommend_by_text(
         self, query: str, top_k: int = 5
     ) -> list[dict[str, str | float]]:
-        """Top-K por texto libre, mediante el mismo modelo preentrenado."""
+        """Top-K per text query with the same model."""
         if not isinstance(query, str) or not query.strip():
-            raise ValueError("La consulta de texto no puede estar vacía.")
+            raise ValueError("Text query can not be empty.")
 
         query_embedding = self.model.encode(query.strip(), convert_to_tensor=True)
         scores = util.cos_sim(query_embedding, self.embeddings)[0]
@@ -112,7 +111,7 @@ class EmbeddingRecommender:
         self, scores, top_k: int, exclude_index: int | None = None
     ) -> list[dict[str, str | float]]:
         if isinstance(top_k, bool) or not isinstance(top_k, int) or top_k < 1:
-            raise ValueError("top_k debe ser un entero positivo.")
+            raise ValueError("top_k must be a positive number.")
 
         ranked = sorted(
             (
