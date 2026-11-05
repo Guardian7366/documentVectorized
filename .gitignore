@@ -1,0 +1,48 @@
+# Entornos virtuales de Python (NO subir a GitHub)
+.venv/
+venv/
+env/
+ENV/
+
+# Archivos compilados y cachés de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Cachés de herramientas locales
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.ipynb_checkpoints/
+
+# Archivos temporales y registros
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Configuración personal del editor / sistema operativo
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Credenciales y configuraciones locales (conservar ejemplos)
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Cachés de modelos/descargas, solo si se generan DENTRO del proyecto
+.cache/
+.huggingface/
