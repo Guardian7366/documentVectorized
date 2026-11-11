@@ -29,3 +29,12 @@ Paste your text (leave an empty line to search, or type 'exit'):
 ```
 
 Results will be displayed based on the similarity of your query to the documents in the corpus.
+
+## Activity 4 — Recommendation Quality Evaluation (in progress)
+
+Activity 4 builds on the **same recommendation engine and corpus** used in Activity 3. The current work and validation data are kept in [`activity4/`](activity4/README.md).
+
+- [Activity 4 report (Word, sections 1–2 completed)](activity4/report/Act4_KM.docx)
+- [Ground-truth and retrieved labels for 25 documents](activity4/validation.csv)
+
+The evaluation script, confusion matrix, visualizations, execution evidence, and infographic have not yet been added.
