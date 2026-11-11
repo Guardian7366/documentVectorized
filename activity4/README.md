@@ -48,3 +48,22 @@ The information need concerns user authentication, password resets, login failur
 5. Do not present pending charts or runtime evidence as completed.
 
 The Word copy in this repository omits bundled font binaries to avoid publishing font files; its text, tables, graphics, and four-page rendering were checked against the supplied document.
+
+
+## Running the Evaluation
+
+This activity uses scikit-learn to calculate Precision, Recall, F1-score, and the confusion matrix. We also use matplotlib to create the charts and save them as images.
+
+To install the required libraries, run this command from the main project folder:
+
+    python -m pip install -r activity4/requirements.txt
+
+To run the evaluation:
+
+    python activity4/evaluate_recommender.py
+
+The program reads the 25 documents from validation.csv and compares the documents marked as relevant with the ones retrieved by the recommender.
+
+After running, the results appear in the terminal. The program also saves the confusion matrix and the performance chart in the figures folder, along with a text file containing the results in the evidence folder.
+
+For this test, Precision, Recall, and F1-score were all 60%. We also ran the original recommender using the same query and confirmed that its five results matched the validation table.

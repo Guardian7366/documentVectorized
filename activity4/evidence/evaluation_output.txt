@@ -1,0 +1,41 @@
+ACTIVITY 4 - RECOMMENDATION EVALUATION
+=====================================================
+
+Document   Relevant   Retrieved
+------------------------------------
+DOC001     1          0
+DOC002     0          0
+DOC003     0          0
+DOC004     0          0
+DOC005     0          0
+DOC006     0          0
+DOC007     0          0
+DOC008     0          0
+DOC009     0          0
+DOC010     0          0
+DOC011     0          0
+DOC012     0          0
+DOC013     1          0
+DOC014     1          1
+DOC015     0          0
+DOC016     0          1
+DOC017     0          0
+DOC018     0          1
+DOC019     0          0
+DOC020     0          0
+DOC021     0          0
+DOC022     1          1
+DOC023     1          1
+DOC024     0          0
+DOC025     0          0
+
+CONFUSION MATRIX RESULTS
+True Positives:  3
+False Positives: 2
+False Negatives: 2
+True Negatives:  18
+
+EVALUATION METRICS
+Precision: 60.00%
+Recall:    60.00%
+F1-score:  60.00%
