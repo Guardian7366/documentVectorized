@@ -1,40 +1,52 @@
 # Document Vectorized Recommender
 
-## Objective
+This repository contains two connected academic activities about semantic document recommendation and its evaluation.
 
-The Document Vectorized Recommender is designed to identify and rank the most relevant documents from a corpus based on the similarity of their vectorized representations. This system is particularly useful for retrieving documents that closely match a given input, whether it is a full document or a free text query.
+## Activities
 
-## Dependencies
+- **[Activity 3 — Document Recommender](activity3/README.md):** The original Python recommendation engine, document corpus, installation instructions, evidence, and final report.
+- **[Activity 4 — Recommendation Quality Evaluation](activity4/README.md):** An ongoing evaluation of the same recommender using manually classified relevance labels, Precision, Recall, F1-score, and visual evidence.
 
-Check the `requirements.txt` file for the necessary dependencies.
+The Activity 4 evaluation uses the original Activity 3 model and dataset; it does not replace or modify them.
 
-## Execution steps
+## Run the recommender (Activity 3)
 
-1. Ensure all dependencies are installed by running:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Run the recommender script:
-   ```bash
-   python recommender_embeddings.py
-   ```
+From the repository root:
 
-## Usage example
-
-Enter your query when prompted by the script:
-
-```text
-Paste your text (leave an empty line to search, or type 'exit'):
-> YOUR_QUERY_HERE
+```bash
+python -m pip install -r activity3/requirements.txt
+python activity3/recommender_embeddings.py
 ```
 
-Results will be displayed based on the similarity of your query to the documents in the corpus.
+To run the document-ID example:
 
-## Activity 4 — Recommendation Quality Evaluation (in progress)
+```bash
+python activity3/example.py
+```
 
-Activity 4 builds on the **same recommendation engine and corpus** used in Activity 3. The current work and validation data are kept in [`activity4/`](activity4/README.md).
+The recommender looks for `activity3/corpus.csv` automatically, regardless of the current working directory.
 
-- [Activity 4 report (Word, sections 1–2 completed)](activity4/report/Act4_KM.docx)
-- [Ground-truth and retrieved labels for 25 documents](activity4/validation.csv)
+## Project organization
 
-The evaluation script, confusion matrix, visualizations, execution evidence, and infographic have not yet been added.
+```text
+documentVectorized/
+├── activity3/                 # Original recommender and Activity 3 deliverables
+│   ├── recommender_embeddings.py
+│   ├── example.py
+│   ├── corpus.csv
+│   ├── requirements.txt
+│   ├── evidencias/
+│   ├── Act3_KM.pdf
+│   └── README.md
+├── activity4/                 # Evaluation, validation table, and report in progress
+│   ├── report/
+│   ├── validation.csv
+│   ├── figures/
+│   ├── evidence/
+│   ├── infographic/
+│   └── README.md
+├── .gitignore                 # Shared repository-level exclusions
+└── README.md                  # This project index
+```
+
+For detailed requirements, evidence, and current completion status, use each activity's README.

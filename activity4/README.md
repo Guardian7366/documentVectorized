@@ -8,8 +8,8 @@ This activity evaluates the recommender from **Activity 3**. It does not rebuild
 
 ## Reused components from Activity 3
 
-- **Engine:** [`../recommender_embeddings.py`](../recommender_embeddings.py)
-- **Corpus:** [`../corpus.csv`](../corpus.csv) (25 documents; `DOC001` through `DOC025`)
+- **Engine:** [`../activity3/recommender_embeddings.py`](../activity3/recommender_embeddings.py)
+- **Corpus:** [`../activity3/corpus.csv`](../activity3/corpus.csv) (25 documents; `DOC001` through `DOC025`)
 - **Model:** `sentence-transformers/all-MiniLM-L6-v2`
 - **Method:** semantic embeddings, cosine similarity, Top-5 results
 
